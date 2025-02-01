@@ -1,0 +1,2 @@
+$ dig janiweb.hu +noall +answer -t A
+> janiweb.hu    3600    IN A     91.227.139.235
