@@ -1,3 +1,1 @@
-$ dig janiweb.hu +noall +answer -t A
-> www.janiweb.hu    3600    IN A     91.227.139.235
-> janiweb.hu    3600    IN A     	91.227.139.235
+janiweb.hu
