@@ -88,6 +88,9 @@ img, video {
 .p1:hover {
     outline: 10px solid blue;
 }
+.w:hover {
+    outline:10px solid #00a3f4;
+}
 .protectedLink {
     border-color: aqua;
 }
@@ -145,13 +148,16 @@ a {
     border-radius: 10px;
 }
 .pass {
-    /*display: none;
-    (eztcsakakkorhaaztszeretnémhogycsakakkorjelenjenmegamikorrákattintanak.)*/border: 10px solid blue;
-    width: 180px;
     border-radius: 10px;
-    position: absolute;
-    top: 60%;
-    right: 0%;
+    background-color: white;
+    width: 325px;
+    padding: 10px 0 1px 20px;
+    margin: 0 auto;
+}
+#meret {
+    width: 200px;
+    height: 125.438;
+    padding: 37.281px 0;
 }
 @media (max-width: 600px) {
     .valasztek, .valasztekok, .valasztekocka {
@@ -181,9 +187,9 @@ a {
         font-size: 20px;
         top: 90px;
     }
-    .pass {
-        top: 120%;
-        left: 0%;
+    #meret {
+        width: 100%;
+        height: auto;
     }
 }
 @media (max-height: 600px) {

@@ -1,0 +1,167 @@
+body {
+    background-color: #00a3f4;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+#projekt {
+    opacity: 0;
+    animation: projekt 0.5s linear forwards;
+    animation-delay: 2s;
+}
+@keyframes projekt {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#vizkorforgasa {
+    animation: vkf 0.5s linear forwards;
+    animation-delay: 2s;
+}
+@keyframes vkf {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.alap {
+    background-color: aqua;
+    border-radius: 20px;
+    height: calc(50vh - 46px);
+    width: 100%;
+}
+.cime {
+    text-decoration: none;
+    text-align: center;
+}
+#cim {
+    border-radius: 20px;
+    position:sticky;
+    top: 0px;
+    z-index: 2;
+    font-size: 16px;
+}
+#cim a {
+    color: white;
+    text-decoration: none;
+}
+#alapcim {
+    position: relative;
+    right: 20px;
+}
+#alcim {
+    position: absolute;
+    right: 10px;
+}
+#cim {
+    display: block;
+    background-color: navy;
+    text-align: center;
+}
+#focim {
+    background-color: navy;
+    width: 80px;
+    border-radius: 20px;
+    padding: 3px;
+    position: absolute;
+    left: 0px;
+    top: -3px;
+}
+.cim a {
+    text-decoration: none;
+}
+.jani {
+    color: yellowgreen;
+}
+.web {
+    color: white;
+}
+#kezdofe {
+    margin-bottom: 20px;
+    position: relative;
+}
+#kezdofe img {
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    object-fit: contain;
+    margin: 10px;
+}
+#menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+#menu div{
+    background-position: center;
+    background-size: cover;
+    font-size: 5vw;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    padding: 5px;
+    width: calc(50% - 25px);
+    height: calc(50% - 30px);
+}
+#menu .ballfen {
+    margin: 10px;
+}
+#menu .jobbfen {
+    margin: 10px 10px 10px 0;
+}
+#menu .balllen {
+    margin: 0 10px 10px 10px;
+}
+#menu .jobblen {
+    margin: 0 10px 10px 0;
+}
+#menu div p, #menu div a {
+    display: flex;
+    margin: auto;
+    color: white;
+    text-decoration: none;
+}
+#tartalom {
+    background-color: aqua;
+    width: calc(100% - 20px);
+    border-radius: 20px;
+    margin: 10px 0 20px 0;
+    padding: 10px;
+    color: black;
+}
+@media (max-height: 400px) {
+    #menu div {
+        font-size: 4vw;
+        transition: all 0.5s linear;
+    }
+}
+@media (min-width: 800px) {
+    #cim {
+        font-size: 30px;
+        transition: all 0.5s ease-in-out;
+    }
+    #focim {
+        width: 200px;
+        transition: all 0.5s ease-in-out;
+    }
+    .alap {
+        height: calc(50vh - 64.4px);
+        transition: all 0.5 linear;
+    }
+}
+@media (min-width: 1000px) {
+    #alapcim {
+        position: relative;
+        right: 0px;
+        transition: all 0.5s ease-in-out;
+    }
+}
+@media (max-height: 550px) and (min-width: 800px) {
+    #menu div {
+        font-size: 30px;
+        transition: all 0.5s linear;
+    }
+}

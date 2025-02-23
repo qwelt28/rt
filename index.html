@@ -33,10 +33,21 @@
                 <video autoplay muted loop class="reklam">
                     <source src="thumbnail/powerpoint.mp4" type="video/mp4">
                 </video>
-                <span>PowerPoint prezentációk amit mind én készítettem.</span>
+                <span>PowerPoint prezentáció amit egyedül készítettem.</span>
             </div>
         </div>    
     </a>
+    <br>
+    <a href="weboldalak/weboldalak.html">
+        <div class="hi w">
+                <div class="valasztek">
+                    <video autoplay muted loop class="reklam">
+                        <source src="thumbnail/weboldalak animacio.mp4" type="video/mp4">
+                    </video>
+                    <span>Weboldalak amit mind egyedül készítettem.</span>
+                </div>
+            </div>    
+        </a>
     <br>
     <a href="#" id="protectedLink">
         <div class="hi e">
@@ -44,7 +55,7 @@
                 <video autoplay muted loop class="reklam">
                     <source src="thumbnail/egyeb.mp4" type="video/mp4">
                 </video>
-                <span>Egyéb tartalmak.</span>
+                <span>Egyéb tartalmak.<br>(Add meg a helyes jelszót ha nem adtad meg.)</span>
             </div>
         </div>
     </a>
@@ -85,17 +96,18 @@
             return savedPasswordTime && (currentTime - savedPasswordTime < oneHour);
         }
 
-        if (isPasswordValid()) {
-            document.querySelectorAll('.pass').forEach((element) => {
-                element.style.display = 'none';
-            });
-        }
+        // if (isPasswordValid()) {
+        //     document.querySelectorAll('.pass').forEach((element) => {
+        //         element.style.display = 'none';
+        //     });
+        // }
 
         document.getElementById('protectedLink').addEventListener('click', function(event) {
             event.preventDefault();
             if (isPasswordValid()) {
                 window.location.href = 'egyeb/egyeb.html';
-            } else {
+            }
+             else {
                 document.getElementById('passwordPanel').style.display = 'block';
             }
         });
@@ -107,8 +119,20 @@
                 // Jelszó mentése és időbélyeg hozzáadása
                 localStorage.setItem('passwordSavedTime', new Date().getTime());
                 window.location.href = 'egyeb/egyeb.html';
-            } else {
-                alert('Helytelen jelszó!');
+            }
+            if (password === 'premium') {
+                // Jelszó mentése és időbélyeg hozzáadása
+                window.location.href = 'premium/janiwebpremium.html';
+            }
+            // Ugye hogy mennyire titkos ez a jelszó hogy még te is látod.
+            if (password === 'janiweb123nagyontitkosjelszo') {
+                window.open ('drive/drive.html', '_blank');
+            }
+            if (password === 'adjál pénzt') {
+                window.location.href = 'adjalpenzt/adjalpenzt.html';
+            }
+            else {
+                // alert('Helytelen jelszó!');
                 document.getElementById('password').value = ''; // Jelszó mező törlése
                 // document.getElementById('passwordPanel').style.display = 'none';
             }
