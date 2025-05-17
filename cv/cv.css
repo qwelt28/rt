@@ -3,12 +3,13 @@ html {
     overflow-y: scroll;
     white-space: nowrap;
     scroll-snap-type: y mandatory;
-    font-family: Arial, Helvetica, sans-serif;
 }
 body{
     background: linear-gradient(0deg, green 20%, lightblue, lawngreen 70%);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 .display {
     height: 100vh;
