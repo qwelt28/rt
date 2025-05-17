@@ -97,7 +97,7 @@ nav img {
     height: calc(50% - 20px);
     padding: 10px;
 }
-.viewone .one img{
+.viewone .one img, .viewone .one .img{
     display: block;
     height: 100%;
     margin: 0 auto;
@@ -110,7 +110,6 @@ nav img {
     word-break: break-word;
     white-space: normal;
     text-align: center;
-    font-size: small;
 }
 .viewone .two a {
     color: white;
@@ -119,6 +118,33 @@ nav img {
 .viewone .two img {
     border: solid 3px white;
     border-radius: 10px;
+}
+.viewone .two .link{
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 0 2px;
+}
+.viewone .two .link:hover {
+    box-shadow: greenyellow 0px 0px 10px 1px;
+}
+.viewtwo .three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: calc(32.5% - 10px);
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: lightblue 0 0 10px 1px;
+
+}
+.img {
+    height: auto;
+}
+.img img {
+    width: 100%;
+    object-fit: contain;
 }
 @media (min-width: 800px) {
     .viewone .one {
