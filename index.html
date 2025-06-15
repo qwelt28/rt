@@ -30,11 +30,12 @@
             95% {opacity: 0%;}
             100% {opacity: 100%;}
         }
-        .ro {position: fixed;display: none;animation-name: ro; animation-duration: 3s;animation-timing-function: linear;
-        height: 100%; top: 0; z-index: 50000;}
+        .ro {position: fixed;display: block;animation-name: ro; animation-duration: 3s;animation-timing-function: linear;
+        height: 100%; top: 0; z-index: 50000;margin: 0 auto;animation-fill-mode: forwards;}
         @keyframes ro {
-            0% {display: block;opacity: 0%;}
-            100% {display: block;opacity: 100%;}
+            0% {opacity: 0%;}
+            90% {opacity: 100%;}
+            100% {opacity: 0%;display: none;}
         }     
     </style>
     <meta property="og:title" content="Janiweb">
