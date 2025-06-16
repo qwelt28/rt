@@ -9,34 +9,6 @@
         body {margin-top: 250px;}/* Nagy üres rész a tetején 140px*/
         @media (max-width: 600px) {body {margin-top: 100px;}}
         @media (max-height: 600px) {body {margin-top: 100px;}}
-            .tj {background-color: transparent;border-radius: 100%;position: fixed; z-index: 2000;transform: rotate(0deg);left: 0%; bottom: -200px;animation-name: tj;transition-timing-function: linear; animation-duration: 3s;}
-        @keyframes tj {
-    60% {bottom: 60%; left: 20%;}
-    70% {transform: rotate(90deg);}
-    80% {bottom: 60%;transform: rotate(90deg);left: 20%;}
-    100% {bottom: 60%;transform: rotate(90deg);left: 40%;}
-        }
-        .tw {background-color: transparent;border-radius: 100%;position: fixed; z-index: 2000;transform: rotate(0deg);right: 0%; bottom: -200px;animation-name: tw;transition-timing-function: linear; animation-duration: 3s; z-index: 45000;}
-        @keyframes tw {
-    60% {bottom: 40%; right: 20%;}
-    70% {transform: rotate(-90deg);}
-    80% {bottom: 40%;transform: rotate(-90deg);right: 20%;}
-    100% {bottom: 40%;transform: rotate(-90deg);right: 40%;}
-        }
-        .tr {display: block;animation-name: tr; animation-duration: 3s;animation-timing-function: linear;
-        width: 100%; z-index: 45000;}
-        @keyframes tr {
-            0% {opacity: 0%;}
-            95% {opacity: 0%;}
-            100% {opacity: 100%;}
-        }
-        .ro {position: fixed;display: block;animation-name: ro; animation-duration: 3s;animation-timing-function: linear;
-        height: 100%; top: 0; z-index: 50000;margin: 0 auto;animation-fill-mode: forwards;}
-        @keyframes ro {
-            0% {opacity: 0%;}
-            90% {opacity: 100%;}
-            100% {opacity: 0%;display: none;}
-        }     
     </style>
     <meta property="og:title" content="Janiweb">
     <meta property="og:description" content="Fedezd fel, mit tartogat számodra a Janiweb, kattints és nézd meg most!">
@@ -51,16 +23,6 @@
     <meta property="og:type" content="video">
 </head>
 <body>
-    <p class="tr" style="font-family: Verdana, Geneva, Tahoma, sans-serif;color: greenyellow;position: relative;top: 180px;text-align: center;background-color: transparent;font-size: 50px;"><b>2025</b></p>
-    <img src="thumbnail/tr.gif" class="tr">
-    <p class="tr" style="color: greenyellow;background-color: navy;text-align: center;position: relative; top: -20;">Boldog születésnapot!</p>
-    <video autoplay muted loop class="tw">
-        <source src="thumbnail/tw.mp4" type="video/mp4">
-    </video>
-    <video autoplay muted loop class="tj">
-        <source src="thumbnail/tj.mp4" type="video/mp4">
-    </video>
-    <img  class="ro" src="thumbnail/77ae2de3-75ff-4360-8613-41a377786221.jpeg">
     <a class="web" href="#">
         <p class="cim fo">
             <img class="esemeny" src="thumbnail/esemeny.png" alt="esemeny kep">
