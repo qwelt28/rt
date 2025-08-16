@@ -82,6 +82,16 @@ img, video {
 .ar:hover {
     outline: 10px solid red;
 }
+.arany div span {
+    color: white;
+}
+.arany div {
+    background-color: black;
+    border: gold 2px solid;
+}
+.arany:hover {
+    outline: 10px solid gold;
+}
 .qr img:hover {
     outline: 10px outset blue;
 }
@@ -162,14 +172,6 @@ a {
     height: 125.438;
     padding: 37.281px 0;
 }
-.esemeny {
-    float: left;
-    height: 100px;
-    width: 100px;
-    margin: 20px 0 0 20px;
-    display: none;
-
-}
 @media (max-width: 600px) {
     .valasztek, .valasztekok, .valasztekocka {
         flex-direction: column;
@@ -201,12 +203,6 @@ a {
     #meret {
         width: 100%;
         height: auto;
-    }
-    .esemeny {
-        width: 50px;
-        height: 50px;
-        margin: 10px 0 0 10px;
-        display: none;
     }
 }
 @media (max-height: 600px) {
