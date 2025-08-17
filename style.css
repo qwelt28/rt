@@ -172,9 +172,6 @@ a {
     height: 125.438;
     padding: 37.281px 0;
 }
-.esemeny {
-    display: none;
-}
 @media (max-width: 600px) {
     .valasztek, .valasztekok, .valasztekocka {
         flex-direction: column;
