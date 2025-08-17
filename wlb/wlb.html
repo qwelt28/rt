@@ -43,21 +43,38 @@
             border-radius: 10px;
         }
         .gomb {
-            height: 30vh;
+            height: auto;
             transition: text-shadow 0.5s, transform 0.5s;
+            text-decoration: none;
+            color: white;
         }
         .gomb:hover {
             cursor: pointer;
             display: block;
             text-shadow: gold 0px 0px 10px;
             transform: scale(1.1);
+            color: white;
         }
         .uzengomb {
             background-color: #6a4e00;
             width: calc(50% - 20px);
-            height: 25vh;
+            height: auto;
             margin: 10px;
             border-radius: 20px;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.5s, color 0.5s, transform 0.5s;
+        }
+        .uzengomb img {
+            width: 25%;
+            margin: 5px;
+        }
+        .uzengomb:hover {
+            cursor: pointer;
+            background-color: goldenrod;
+            color: white;
+            transform: scale(1.05);
+            
         }
         /* Direkt vált elöbb a gépi négyzetbe nem kell megvárni hogy ha elégszéles a monitor vagy jó képmínőségű akkor legyenek ilyen szélei. */
         @media (min-width: 1200px) {
@@ -69,6 +86,9 @@
             .desktop {
                 display: none;
             }
+            .uzengomb img {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -77,13 +97,13 @@
     <div style="background: linear-gradient(to top,#333333 0%, #000000 20%, #000000 80%, #333333 100%);" class="container-xxl">
         <div class="row text-center" style="position: sticky;">
             <a style="text-align: left;" class="col-4" href="../index.html"><div class="vissza">&lt;</div></a>
-            <h1 style="font-size: xxx-large;" class="col-4 my-auto">WLB</h1>
+            <h1 style="font-size: xxx-large;" class="col-4 my-auto"><span class="phone">WLB</span><span class="desktop" >Wiz Light Biz<span></span></h1>
             <img style="height: 75px;width: 100px;margin: 10px 10px 10px auto;margin-left: auto;" class="col-4" src="../thumbnail/wlb256px.png" alt="WLB-logo">
         </div>
         <div class="row text-center">
             <div style="position: relative; margin-bottom: 20px;" class="phone col-12">
                 <img style="width: 100%;max-width: 500px;" src="../thumbnail/wlb.png" alt="NAGY WLB-logo">
-                <p style="position: absolute; bottom: 0px; text-align: center; width: calc(100% - 20px); background: linear-gradient(#00000000, #6a4e00 20%);margin: 0;font-size: large;"><br> Üdvözölek a WLB weboldalon! Itt megtalálod a legfrissebb híreket, eseményeket és információkat a WLB-ről.<br>(Most még nincsenek :( de felveheted velem a kapcsolatott az alábbi csevegési opciókon vagy az alábbi linkeken keresztül elérhető információkból tud tájékozódni. )</p>
+                <p style="position: absolute; bottom: 0px; text-align: center; width: calc(100% - 20px); background: linear-gradient(#00000000, #6a4e00 20%);margin: 0;font-size: large;"><br>Üdvözölek a WLB weboldalán weboldalon megtalálhatod a hivatalos közösségi média oldalait, ahol naprakész információkat és híreket osztunk meg. Ezen felül megtalálhatod az összefoglaló videónkat. Ha szeretnél kapcsolatba lépni velünk, akkor írj nekünk e-mailt vagy üzenetet a messengeren. Köszönjük, hogy ellátogattál hozzánk!</p>
             </div>
             <div class="col-4 desktop">
                 <video autoplay muted loop class="reklam">
@@ -91,32 +111,38 @@
                 </video>
             </div>
             <p class="col-8 desktop" style="background: linear-gradient( gray, white);color: black;font-size: xx-large; padding: 20px ;">
-                Üdvözölek a WLB weboldalon! Itt megtalálod a legfrissebb híreket, eseményeket és információkat a WLB-ről.<br>(Most még nincsenek :( de felveheted velem a kapcsolatott az alábbi csevegési opciókon vagy az alábbi linkeken keresztül elérhető információkból tud tájékozódni. )
+                Üdvözölek a Wiz Light Biz weboldalán weboldalon megtalálhatod a hivatalos közösségi média oldalait, ahol naprakész információkat és híreket osztunk meg. Ezen felül megtalálhatod az összefoglaló videónkat. Ha szeretnél kapcsolatba lépni velünk, akkor írj nekünk e-mailt vagy üzenetet a messengeren. Köszönjük, hogy ellátogattál hozzánk!
             </p>
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8 my-4 py-4" style="background-color: goldenrod;">
+                <iframe width="100%" height="400vh" src="https://www.youtube.com/embed/2RJvYiuCDk0" title="WLB videó" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
             <div class="col-12 col-xl-4">
                 <div class="row">
-                    <div class="col-4 gomb">
-                        <img src="../thumbnail/facebook.svg" alt="Facebook-icon" width="100%">
-                        <p style="text-align: center;font-size: 20px;">Facebook</p>
-                    </div>
-                    <div class="col-4 gomb">
-                        <img src="../thumbnail/youtube.svg" alt="Youtube-icon" width="100%">
-                        <p style="text-align: center;font-size: 20px;">Youtube</p>
-                    </div>
-                    <div class="col-4 gomb">
+                    <a href="https://www.linkedin.com/company/wiz-light-biz-consortium-franchise" target="_blank" class="col-4 gomb">
                         <img src="../thumbnail/linkedin.svg" alt="linkedln-icon" width="100%">
                         <p style="text-align: center;font-size: 20px;">Linkedln</p>
-                    </div>
+                    </a>
+                    <a href="https://www.youtube.com/@wlbcofr" target="_blank" class="col-4 gomb">
+                        <img src="../thumbnail/youtube.svg" alt="Youtube-icon" width="100%">
+                        <p style="text-align: center;font-size: 20px;">Youtube</p>
+                    </a>
+                    <a href="https://www.facebook.com/azelsohetmasodperc" target="_blank" class="col-4 gomb">
+                        <img src="../thumbnail/facebook.svg" alt="Facebook-icon" width="100%">
+                        <p style="text-align: center;font-size: 20px;">Facebook</p>
+                    </a>
                 </div>
             </div>
             <div class="col-12 col-xl-8">
                 <div class="row">
-                    <div class="col-6 uzengomb">
-                        szia
-                    </div>
-                    <div class="col-6 uzengomb">
-                        helló
-                    </div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB,%0A%0AEzúton%20szeretném%20jelezni,%20hogy%20érdeklődöm%20a%20Wiz%20Light%20Biz%20közösség%20iránt,%0Aés%20szeretnék%20csatlakozni%20hozzátok.%20Bízom%20benne,%20hogy%20részese%20lehetek%0Aennek%20a%20nagyszerű%20kezdeményezésnek.%0A%0AÜdvözlettel:%0A<Név>" target="_blank" class="col-6 uzengomb">
+                        <img src="../thumbnail/e-mail.svg" alt="Levél-icon">
+                        <h5>Írj Gmailt a wlb.janiweb@gmail.com-ra.</h5>
+                    </a>
+                    <a href="https://m.me/61579619487222" target="_blank" class="col-6 uzengomb">
+                        <img src="../thumbnail/messenger.svg" alt="">
+                        <h5>Írj messengeren üzenetett Wlb Janiweb.</h5>
+                    </a>
                 </div>
             </div>
     </div>
@@ -124,5 +150,3 @@
     <script src="../bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-<!-- <p>Üdvözlünk a WLB hivatalos oldalán! Itt megtalálod a legfrissebb híreket, eseményeket és információkat a WLB-ről.</p> -->
-<!-- WLB (Wiz Light Biz Consortium & Franchise) -->
