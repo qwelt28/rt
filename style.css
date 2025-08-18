@@ -88,6 +88,7 @@ img, video {
 .arany div {
     background-color: black;
     border: gold 2px solid;
+    width: calc(100% - 4px);
 }
 .arany:hover {
     outline: 10px solid gold;
