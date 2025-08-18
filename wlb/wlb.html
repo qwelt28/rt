@@ -76,6 +76,9 @@
             transform: scale(1.05);
             
         }
+        .gphone {
+            font-size: 16px;
+        }
         /* Direkt vált elöbb a gépi négyzetbe nem kell megvárni hogy ha elégszéles a monitor vagy jó képmínőségű akkor legyenek ilyen szélei. */
         @media (min-width: 1200px) {
             .phone {
@@ -89,6 +92,16 @@
             .uzengomb img {
                 width: 90%;
             }
+        }
+        @media (min-width: 990px) {
+                .gphone {
+                    display: none;
+                }
+        }
+        @media (max-width: 989.98px) {
+                .gdesktop {
+                    display: none;
+                }
         }
     </style>
 </head>
@@ -141,7 +154,7 @@
                     </a>
                     <a href="mailto:wlb.janiweb@gmail.com?subject=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB,%0A%0AEzúton%20szeretném%20jelezni,%20hogy%20érdeklődöm%20a%20Wiz%20Light%20Biz%20közösség%20iránt,%0Aés%20szeretnék%20csatlakozni%20hozzátok.%20Bízom%20benne,%20hogy%20részese%20lehetek%0Aennek%20a%20nagyszerű%20kezdeményezésnek.%0A%0AÜdvözlettel:%0A<Név>" target="_blank" class="col-6 uzengomb phone">
                         <img src="../thumbnail/e-mail.svg" alt="Levél-icon">
-                        <h5>Írj Gmailt a wlb.janiweb@gmail.com-ra.</h5>
+                        <h5>Írj Gmailt a <span class="gdesktop">wlb.janiweb@gmail.com-ra</span><span class="gphone">wlb.janiweb@gmail.com-ra</span>.</h5>
                     </a>
                     <a href="https://m.me/61579619487222" target="_blank" class="col-6 uzengomb">
                         <img src="../thumbnail/messenger.svg" alt="">
