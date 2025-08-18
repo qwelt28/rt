@@ -172,6 +172,11 @@ a {
     height: 125.438;
     padding: 37.281px 0;
 }
+/* Regen reklam */
+.gombv {
+    pointer-events: none;
+}
+
 @media (max-width: 600px) {
     .valasztek, .valasztekok, .valasztekocka {
         flex-direction: column;
