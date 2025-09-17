@@ -35,8 +35,8 @@
         <div class="hik-container">
             <div class="hik p1" data-href="ppt(x)/A naprendszer és az űrteleszkópok(Jani).pptx" data-video-src="thumbnail/p1.mp4" data-size="2000000">
                 <div class="valasztekok">
-                    <video class="gombv" muted loop>
-                        <!-- A videó forrása később lesz beállítva -->
+                    <video class="gombv" autoplay muted loop>
+                        <source src="thumbnail/p1.mp4" type="video/mp4">
                     </video>
                     <span>Ez egy Naprendszer és űrteleszkópos kviz.</span>
                 </div>
@@ -51,73 +51,5 @@
                 </div>
             </div> -->
         </div>
-    <script>
-        document.querySelectorAll('img').forEach((element) => {
-            element.draggable = false;
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const hikElements = document.querySelectorAll(".hik.p1");
-            const maxMemoryUsage = 200 * 1024 * 1024; // 200 MB
-            const minMemoryUsage = 150 * 1024 * 1024; // 150 MB (200 MB - 50 MB)
-            let currentMemoryUsage = 0;
-            const loadedElements = [];
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    const hikElement = entry.target;
-                    const video = hikElement.querySelector("video.reklam");
-                    if (entry.isIntersecting) {
-                        if (!hikElement.dataset.loaded) {
-                            hikElement.dataset.loaded = true;
-                            hikElement.innerHTML = `
-                                <a href="${hikElement.dataset.href}" download>
-                                    <div class="valasztekok">
-                                        <video class="gombv" muted loop data-src="${hikElement.dataset.videoSrc}">
-                                            <source src="${hikElement.dataset.videoSrc}" type="video/mp4">
-                                        </video>
-                                        <span>Ez egy Naprendszer és űrteleszkópos kviz.</span>
-                                    </div>
-                                </a>
-                            `;
-                            currentMemoryUsage += parseInt(hikElement.dataset.size, 10);
-                            loadedElements.push(hikElement);
-                        }
-                        const video = hikElement.querySelector("video.reklam");
-                        if (video && !video.src) {
-                            video.src = video.getAttribute('data-src');
-                        }
-                        video.play();
-                    } else {
-                        video.pause();
-                        if (video.src) {
-                            currentMemoryUsage -= parseInt(hikElement.dataset.size, 10);
-                            video.removeAttribute('src');
-                            video.load();
-                            const index = loadedElements.indexOf(hikElement);
-                            if (index > -1) {
-                                loadedElements.splice(index, 1);
-                            }
-                        }
-                    }
-                });
-
-                // Ellenőrizzük a memóriahasználatot és eltávolítjuk a videókat, ha szükséges
-                while (currentMemoryUsage > maxMemoryUsage && loadedElements.length > 0) {
-                    const hikElement = loadedElements.shift();
-                    const video = hikElement.querySelector("video.reklam");
-                    currentMemoryUsage -= parseInt(hikElement.dataset.size, 10);
-                    video.pause();
-                    video.removeAttribute('src');
-                    video.load();
-                }
-            }, { threshold: 0.1 });
-
-            hikElements.forEach(hikElement => {
-                observer.observe(hikElement);
-            });
-        });
-    </script>
 </body>
-
 </html>
