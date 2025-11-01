@@ -9,6 +9,7 @@
         body {
             background-color: #00050e;
             color: white;
+            overflow-x:hidden;
         }
         .cim {
             z-index: 2;
@@ -80,7 +81,53 @@
             transform: scale(1.05);
             
         }
-                @media (min-width: 800px) {
+        .keret {
+            border:#001234 solid 3px;
+            border-radius:20px;
+            padding:20px;
+        }
+        .kere {
+            border: solid 3px;
+            border-radius:20px;
+            padding:20px;
+        }
+        .kere h5 {
+            border: solid 3px;
+            border-radius:20px;
+            padding:10px;
+        }
+        .vegomb {
+            
+            text-decoration: none;
+            display:flexbox;
+            color:white;
+            padding: 10px;
+            border-radius:20px;
+            font-weight:bold;
+        }
+        .vegomb:hover {
+            color:white;
+            
+        }
+        .vgg {
+            background: linear-gradient(green,greenyellow);
+        }
+        .vgg:hover {
+            box-shadow: 0px 0px 20px green;
+        }
+        .vgy {
+            background: linear-gradient(orange,yellow);
+        }
+        .vgy:hover {
+            box-shadow: 0px 0px 20px orange;
+        }
+        .vgr {
+            background: linear-gradient(brown,red)
+        }
+        .vgr:hover {
+            box-shadow: 0px 0px 20px brown;
+        }
+            @media (min-width: 800px) {
             .phone {
                 display: none;
             }
@@ -153,16 +200,81 @@
                     </a>
                 </div>
             </div>
+            <div class="keret">
+                    <h2>Csomagok:</h2>
+                    <div class="kere" style="border-color:greenyellow">
+                        <h5 style="border-color:green;">Alap csomag – 9 € / hó</h5>
+                        <p><b>Kezdd el biztonságosan, kockázat nélkül.</b><br>
+                            Ez a csomag tökéletes, ha most ismerkedsz a WLB rendszerrel, és szeretnéd megtapasztalni, hogyan működik a közösség.</p>
+                            <p><b>Tartalmazza:</b></p>
+                            <ul>
+                            <li>Belépést a nemzetközi WLB közösségbe</li>   
+                            <li>Hozzáférést az alap tudásanyagokhoz és oktató videókhoz</li>     
+                            <li>Online bevezetés a rendszer működésébe</li>
+                            <li>Lehetőség csatlakozni közösségi hívásokhoz megfigyelőként</li>
+                            </ul>
+                            <br>
+                            <p><b>Neked ajánlott, ha:</b></p>
+                            <p>> Most indulnál el, és előbb szeretnél mindent megérteni.</p>
+                            <p>> Szeretnél fejlődni, de még nem tudod, melyik irányban.</p>
+                            <br>
+                            <p><b>Első lépés: csatlakozz és próbáld ki!</b></p>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB%2C%0Acsomag%3A%20Alap%0Atelefonsz%C3%A1m%3A%0A%C3%9Cdv%C3%B6zlettel%3A%0A%0AEgy%C3%A9b%3A%0A%3CNem%20kell%20ide%20%C3%ADrni.%3E" target="blank" class="vegomb vgg">Csatlakozom</a>
+                    </div>
+                    <br>
+                    <div class="kere" style="border-color:yellow">
+                        <h5 style="border-color:orange;">Haladó csomag – 69 € / hó</h5>
+                        <p><b>A növekedés és a közösségi fejlődés szintje.</b><br>
+                            Ez a legnépszerűbb csomag, ahol már aktívan részt vehetsz a WLB közösségi munkájában és mastermind találkozókon.</p>
+                        <p><b>Tartalmazza:</b></p>
+                            <ul>
+                                <li>Minden az Alap csomagból</li>
+                                <li>Heti online mastermind találkozók</li>
+                                <li>Személyes visszajelzés a vállalkozásodról</li>
+                                <li>Gyakorlati eszközök és kommunikációs sablonok</li>
+                                <li>Kapcsolatépítési lehetőségek (partnerek, beszállítók, vevők)</li>
+                                <li>Privát közösségi felület elérés</li>
+                            </ul>
+                            <p><b>Neked ajánlott, ha:</b></p>
+                            <p>> Aktívan fejlesztenéd a vállalkozásod.</p>
+                            <p>> Fontos számodra a közösség és a visszajelzés.</p>
+                            <br>
+                            <p><b>Itt kezdődik az igazi fejlődés.</b></p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB%2C%0Acsomag%3A%20Haladó%0Atelefonszám%3A%0AÜdvözlettel%3A%0A%0AEgyéb%3A%0A%3CNem%20kell%20ide%20írni.%3E" target="blank" class="vegomb vgy">Csatlakozom</a>
+                    </div>
+                    <br>
+                    <div class="kere" style="border-color:red">
+                        <h5 style="border-color:brown;">Prémium csomag – 195 € / hó</h5>
+                        <p><b>Személyre szabott támogatás, konkrét eredményekkel.</b>
+                            A Prémium csomag azoknak szól, akik gyors, mérhető fejlődést és egyéni mentorálást szeretnének.</p>
+                            <p><b>Tartalmazza:</b></p>
+                            <ul>
+                                <li>Minden a Haladó csomagból</li>
+                                <li>Egyéni tanácsadói konzultációk (heti/havi szinten)</li>
+                                <li>Személyre szabott stratégiai terv</li>
+                                <li>Egyéni marketing- és kommunikációs útmutatás</li>
+                                <li>VIP támogatás és elsőbbségi ügyfélszolgálat</li>
+                                <li>Részvétel zárt szakmai csoportban</li>
+                            </ul>
+                            <p><b>Neked ajánlott, ha:</b></p>
+                            <p>> Tapasztalt vállalkozó vagy, aki gyors növekedést akar.</p>
+                            <p>> Személyes mentorral szeretnél dolgozni a céljaidon.</p>
+                            <br>
+                            <p><b>Lépj a profik közé – és kezdj el látványosan fejlődni.</b></p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB%2C%0Acsomag%3A%20Prémium%0Atelefonszám%3A%0AÜdvözlettel%3A%0A%0AEgyéb%3A%0A%3CNem%20kell%20ide%20írni.%3E" target="blank" class="vegomb vgr">Csatlakozom</a>
+                    </div>
+                </div>
+                <br>
             <div class="col-12 col-md-8" id="kuld">
                 <div class="row">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB,%0A%0AEzúton%20szeretném%20jelezni,%20hogy%20érdeklődöm%20a%20Wiz%20Light%20Biz%20közösség%20iránt,%0Aés%20szeretnék%20csatlakozni%20hozzátok.%20Bízom%20benne,%20hogy%20részese%20lehetek%0Aennek%20a%20nagyszerű%20kezdeményezésnek.%0A%0AÜdvözlettel:%0A<Név>" target="_blank" class="col-6 uzengomb desktop">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB%2C%0A%0A%0A%0AÜdvözlettel%3A%0A<Név>" target="_blank" class="col-6 uzengomb"><!--.desktop-->
                         <img src="../thumbnail/e-mail.svg" alt="Levél-icon">
                         <h5>Írj Gmailt a wlb.janiweb@gmail.com-ra.</h5>
                     </a>
-                    <a href="mailto:wlb.janiweb@gmail.com?subject=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB,%0A%0AEzúton%20szeretném%20jelezni,%20hogy%20érdeklődöm%20a%20Wiz%20Light%20Biz%20közösség%20iránt,%0Aés%20szeretnék%20csatlakozni%20hozzátok.%20Bízom%20benne,%20hogy%20részese%20lehetek%0Aennek%20a%20nagyszerű%20kezdeményezésnek.%0A%0AÜdvözlettel:%0A<Név>" target="_blank" class="col-6 uzengomb phone">
+                    <!-- <a href="mailto:wlb.janiweb@gmail.com?subject=Csatlakoz%C3%A1s%20a%20WLB-hez&body=Kedves%20WLB%2C%0A%0A%0A%0A%C3%9Cdv%C3%B6zlettel%3A%0A%3CN%C3%A9v%3E" target="_blank" class="col-6 uzengomb phone">
                         <img src="../thumbnail/e-mail.svg" alt="Levél-icon">
                         <h5>Írj Gmailt a <span class="gdesktop">wlb.janiweb@gmail.com-ra</span><span class="gphone">wlb.janiweb@gmail.com-ra</span>.</h5>
-                    </a>
+                    </a> -->
                     <a href="https://m.me/61579619487222" target="_blank" class="col-6 uzengomb">
                         <img src="../thumbnail/messenger.svg" alt="">
                         <h5>Írj messengeren üzenetett Wlb Janiweb.</h5>

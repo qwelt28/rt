@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
     <style>
         body {
-            background-color: #00050e;
+            height: 100%;
+            overflow-x:hidden;
             color: white;
-        }
-        .cim {
-            z-index: 2;
-            background-color: #333333cc;
-            border-radius: 0 0 50px 50px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right,#333333 0%, #000000 20%, #000000 80%, #333333 100%);
         }
         .vissza {
             color:white;
@@ -29,20 +29,18 @@
             font-weight: bold;
             margin: 10px;
         }
-        .iframe-container {
-        position: relative;
-        /* Itt adod meg az arányt – pl. 16:9 = 9/16 = 56.25% */
-        padding-bottom: 56.25%; 
-        height: 0;
-        overflow: hidden;
+        .top-gardient {
+            background: linear-gradient(to top, #000000, #333333);
         }
-        .iframe-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
+        .desktop {
+            /* background: linear-gradient(135deg, gold, orange); */
+            /* background: linear-gradient( gray, white); */
+            border-radius: 10px;
+        }
+        .desktop video {
+            height: calc(50vh - 20px);
+            margin: 10px 10px 20px 10px;
+            border-radius: 10px;
         }
         .gomb {
             height: auto;
@@ -66,8 +64,6 @@
             color: black;
             text-decoration: none;
             transition: background-color 0.5s, color 0.5s, transform 0.5s;
-            text-align:center;
-            font-size:1px;
         }
         .uzengomb img {
             width: 25%;
@@ -80,64 +76,61 @@
             transform: scale(1.05);
             
         }
-                @media (min-width: 800px) {
+        .gphone {
+            font-size: 14px;
+        }
+        /* Direkt vált elöbb a gépi négyzetbe nem kell megvárni hogy ha elégszéles a monitor vagy jó képmínőségű akkor legyenek ilyen szélei. */
+        @media (min-width: 1200px) {
             .phone {
                 display: none;
             }
         }
-
-        @media (max-width: 800px) {
+        @media (max-width: 1199.98px) {
             .desktop {
                 display: none;
             }
-
             .uzengomb img {
                 width: 90%;
             }
         }
-
-        @media (min-width: 800px) {
-            .gphone {
-                display: none;
-            }
+        @media (min-width: 990px) {
+                .gphone {
+                    display: none;
+                }
         }
-
-        @media (max-width: 800px) {
-            .gdesktop {
-                display: none;
-            }
+        @media (max-width: 989.98px) {
+                .gdesktop {
+                    display: none;
+                }
         }
     </style>
 </head>
 <body>
-    <div class="row text-center cim" style="position: sticky;top: 0px;">
-                <a style="text-align: left;" class="col-4" href="../index.html"><div class="vissza">&lt;</div></a>
-                <h1 style="font-size: xxx-large;" class="col-4 my-auto"><span class="phone">WLB</span><span class="desktop">Wiz Light Biz</span></h1>
-                <img style="height: 75px;width: 100px;margin: 10px 10px 10px auto;margin-left: auto;" class="col-4" src="../thumbnail/wlb256px.png" alt="WLB-logo">
+    
+    <div style="background: linear-gradient(to top,#333333 0%, #000000 20%, #000000 80%, #333333 100%);" class="container-xxl">
+        <div class="row text-center" style="position: sticky;">
+            <a style="text-align: left;" class="col-4" href="../index.html"><div class="vissza">&lt;</div></a>
+            <h1 style="font-size: xxx-large;" class="col-4 my-auto"><span class="phone">WLB</span><span class="desktop" >Wiz Light Biz<span></span></h1>
+            <img style="height: 75px;width: 100px;margin: 10px 10px 10px auto;margin-left: auto;" class="col-4" src="../thumbnail/wlb256px.png" alt="WLB-logo">
+        </div>
+        <div class="row text-center">
+            <div style="position: relative; margin-bottom: 20px;" class="phone col-12">
+                <img style="width: 100%;max-width: 500px;" src="../thumbnail/wlb.png" alt="NAGY WLB-logo">
+                <p style="position: absolute; bottom: 0px; text-align: center; width: calc(100% - 20px); background: linear-gradient(#00000000, #6a4e00 20%);margin: 0;font-size: large;"><br>Üdvözölek a WLB weboldalán weboldalon megtalálhatod a hivatalos közösségi média oldalait, ahol naprakész információkat és híreket osztunk meg. Ezen felül megtalálhatod az összefoglaló videónkat. Ha szeretnél kapcsolatba lépni velünk, akkor írj nekünk e-mailt vagy üzenetet a messengeren. Köszönjük, hogy ellátogattál hozzánk!</p>
             </div>
-        <div class="container-sm" style="max-width:800px;">
-            <div>
-                <h1>Változtasd meg vállalkozásod jövőjét — csatlakozz a WizLightBiz-hez</h1>
-                <p>Nézd meg rövid bemutatónkat, és tudd meg, hogyan segítünk stabil bevételt és gyors növekedést elérni a válság közepette is.</p>
-                <ul class="noli">
-                    <li>💬 <b>Nem maradsz egyedül</b> A WLB-ben támogató közösség vesz körül – vállalkozók, akik hasonló utat járnak, és segítenek, ha elakadsz.</li>
-                    <li>🚀 <b>Valós fejlődés, gyakorlati tudás</b> Nem elméleti tréningeket kapsz, hanem azonnal alkalmazható megoldásokat, tapasztalt vállalkozóktól.</li>
-                    <li>🧭 <b>Saját irányt mutat</b> Nem sablont ad, hanem segít megtalálni azt az utat, ami hozzád és a te vállalkozásodhoz illik.</li>
-                    <li>📈 <b>Folyamatos fejlődés, egyszerű rendszerben</b> Heti mastermind találkozók, inspiráció, és egy könnyen tanulható rendszer, amivel lépésről lépésre fejlődhetsz.</li>
-                </ul>
+            <div class="col-4 desktop">
+                <video autoplay muted loop class="gombv">
+                    <source src="../thumbnail/wlb_logo.mp4" type="video/mp4">
+                </video>
             </div>
-            <br>
-            <div class="row text-center" style="border:solid 5px #000c21;border-radius:20px;background-color:#001234;padding:20px;">
-                <h1>Videók</h1>
-                <hr>
-                <div class="col-md-8 iframe-container">
-                    <iframe src="https://www.youtube.com/embed/0tOhaq-kHKY" title="WLB: Vállalkozóknak és munkavállalóknak mindenben a legjobbat!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="col-md-4 iframe-container">
-                    <iframe width="315" height="576" src="https://www.youtube.com/embed/pyxFkfwDH6k" title="WLB: Vállalkozóknak és munkavállalóknak mindenben a legjobbat! #shorts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+            <p class="col-8 desktop" style="background: linear-gradient( gray, white);color: black;font-size: xx-large; padding: 20px ;">
+                Üdvözölek a Wiz Light Biz weboldalán weboldalon megtalálhatod a hivatalos közösségi média oldalait, ahol naprakész információkat és híreket osztunk meg. Ezen felül megtalálhatod az összefoglaló videónkat. Ha szeretnél kapcsolatba lépni velünk, akkor írj nekünk e-mailt vagy üzenetet a messengeren. Köszönjük, hogy ellátogattál hozzánk!
+            </p>
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-10 col-xl-8 my-4 py-4" style="background-color: goldenrod;">
+                <iframe width="100%" height="400vh" src="https://www.youtube.com/embed/0tOhaq-kHKY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <div class="col-12 col-md-4">
+                <div class="col-12 col-xl-4">
                 <div class="row">
                     <a href="https://www.linkedin.com/company/wiz-light-biz-consortium-franchise" target="_blank" class="col-4 gomb">
                         <img src="../thumbnail/linkedin.svg" alt="linkedln-icon" width="100%">
@@ -153,7 +146,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-8" id="kuld">
+            <div class="col-12 col-xl-8">
                 <div class="row">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wlb.janiweb@gmail.com&su=Csatlakozás%20a%20WLB-hez&body=Kedves%20WLB,%0A%0AEzúton%20szeretném%20jelezni,%20hogy%20érdeklődöm%20a%20Wiz%20Light%20Biz%20közösség%20iránt,%0Aés%20szeretnék%20csatlakozni%20hozzátok.%20Bízom%20benne,%20hogy%20részese%20lehetek%0Aennek%20a%20nagyszerű%20kezdeményezésnek.%0A%0AÜdvözlettel:%0A<Név>" target="_blank" class="col-6 uzengomb desktop">
                         <img src="../thumbnail/e-mail.svg" alt="Levél-icon">
@@ -169,7 +162,8 @@
                     </a>
                 </div>
             </div>
-        </div>
-    <script href="../bootstrap/bootstrap.bundle.min.js"></script>
+    </div>
+
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>
