@@ -1,3 +1,4 @@
+
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +48,7 @@
     <a href="powerpoint/powerpoint.html">
     <div class="hi p">
             <div class="valasztek">
-                <video autoplay muted loop class="gombv">
+                <video autoplay muted loop class="gombv" playsinline webkit-playsinline>
                     <source src="thumbnail/powerpoint.mp4" type="video/mp4">
                 </video>
                 <span>PowerPoint prezentáció</span>
@@ -58,7 +59,7 @@
     <a href="weboldalak/weboldalak.html">
         <div class="hi w">
                 <div class="valasztek">
-                    <video autoplay muted loop class="gombv">
+                    <video autoplay muted loop class="gombv" playsinline webkit-playsinline>
                         <source src="thumbnail/weboldalak animacio.mp4" type="video/mp4">
                     </video>
                     <span>Weboldalak</span>
@@ -69,7 +70,7 @@
     <a href="#" id="protectedLink">
         <div class="hi e">
             <div class="valasztek">
-                <video autoplay muted loop class="gomv">
+                <video autoplay muted loop class="gomv" playsinline webkit-playsinline>
                     <source src="thumbnail/egyeb.mp4" type="video/mp4">
                 </video>
                 <span>Egyéb tartalmak.<br>(Add meg a helyes jelszót ha nem adtad meg.)</span>
@@ -85,8 +86,9 @@
             <button type="submit">Belépés</button>
         </form>
     </div>
-    <a href="thumbnail/janiwebqr.png" download><p class="tun" style="text-align: center;width: 600px;margin-bottom:0px;margin-top:50px;margin-left:auto;margin-right: auto;align-items: center;font-size: 20px;background-color: yellow;">Kattintásra letölti a kártyát!</p></a>
-    <p class="qr"><a href="thumbnail/janiwebqr.png" download><img src="thumbnail/janiwebqr.png" alt="QR"></a></p>
+    <br>
+<!--<a href="thumbnail/janiwebqr.png" download><p class="tun" style="text-align: center;width: 600px;margin-bottom:0px;margin-top:50px;margin-left:auto;margin-right: auto;align-items: center;font-size: 20px;background-color: yellow;">Kattintásra letölti a kártyát!</p></a>
+    <p class="qr"><a href="thumbnail/janiwebqr.png" download><img src="thumbnail/janiwebqr.png" alt="QR"></a></p>-->
     <script>
         document.querySelectorAll('img').forEach((element) => {
             element.draggable = false;
@@ -132,9 +134,6 @@
             // Hát ez nem túl titkos.
             if (password === 'janiweb123nagyontitkosjelszo') {
                 window.open ('drive/drive.html', '_blank');
-            }
-            if (password === 'fizika') {
-                window.open ('egyenletesgyorsulomozgas.py', '_blank')
             }
             else {
                 // alert('Helytelen jelszó!');
