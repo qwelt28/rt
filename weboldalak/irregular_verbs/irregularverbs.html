@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Irregular verbs</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background-color: #f0f2f5; margin-top: 50px; }
+        .container { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); text-align: center; width: 80%; max-width: 800px; }
+        
+        .input-group { margin: 20px 0; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; }
+        #first-word { font-weight: bold; font-size: 1.5rem; color: #333; }
+        
+        input { padding: 12px; width: 120px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; outline: none; transition: all 0.3s; }
+        input.correct { border-color: #27ae60; color: #27ae60; background-color: #f1fcf5; font-weight: bold; }
+        
+        #timer { color: #e74c3c; font-size: 2.5rem; font-weight: bold; height: 50px; margin: 10px 0; }
+        #message { margin-top: 15px; font-size: 1.2rem; min-height: 60px; }
+        
+        button { padding: 15px 30px; cursor: pointer; background: #3498db; color: white; border: none; border-radius: 8px; font-size: 1.1rem; transition: 0.3s; }
+        button.correct-btn { background-color: #27ae60 !important; }
+        button:disabled { background: #bdc3c7; cursor: not-allowed; opacity: 0.7; }
+        
+        .error-text { color: #e74c3c; font-weight: bold; font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="color:#3498db">Irregular verbs</h2>
+    
+    <div class="input-group">
+        <span id="first-word" style="padding: 0 20px;min-width:200px;"></span>
+        <input type="text" id="word2" placeholder="Present" autocomplete="off">
+        <input type="text" id="word3" placeholder="Past simple" autocomplete="off">
+        <input type="text" id="word4" placeholder="Past participle" autocomplete="off">
+    </div>
+
+    <div id="timer"></div>
+    <div id="message"></div>
+    <br>
+    <button id="submit-btn" onclick="handleInteraction()">Submit (Enter)</button>
+</div>
+
+<script>
+    let allLines = [];
+    let currentLineWords = [];
+    let isWaiting = false;      
+    let isCorrectState = false; 
+
+    async function loadTextFile() {
+        try {
+            const response = await fetch('irregularverbs.txt');
+            const text = await response.text();
+            allLines = text.split('\n').map(s => s.trim()).filter(s => s.split(/\;/).length === 4);
+            if (allLines.length > 0) newRound();
+            else document.getElementById('message').innerText = "Hiba: Nincs 4 szavas sor a fájlban!";
+        } catch (e) {
+            document.getElementById('message').innerText = "Hiba: A irregularverbs.txt nem olvasható!";
+        }
+    }
+
+    function newRound() {
+        const randomIndex = Math.floor(Math.random() * allLines.length);
+        currentLineWords = allLines[randomIndex].split(/\;/);
+        
+        isCorrectState = false;
+        isWaiting = false;
+
+        const btn = document.getElementById('submit-btn');
+        btn.innerText = "Submit (Enter)";
+        btn.classList.remove('correct-btn');
+        btn.disabled = false;
+
+        const inputs = [document.getElementById('word2'), document.getElementById('word3'), document.getElementById('word4')];
+        inputs.forEach(input => {
+            input.value = "";
+            input.classList.remove('correct');
+            input.disabled = false;
+        });
+
+        document.getElementById('first-word').innerText = currentLineWords[0];
+        document.getElementById('message').innerHTML = "";
+        document.getElementById('timer').innerText = "";
+        inputs[0].focus();
+    }
+
+    function handleInteraction() {
+        if (isWaiting) return; 
+
+        if (isCorrectState) {
+            newRound();
+        } else {
+            checkSolution();
+        }
+    }
+
+    function checkSolution() {
+        const inputs = [
+            document.getElementById('word2'),
+            document.getElementById('word3'),
+            document.getElementById('word4')
+        ];
+        const userWords = inputs.map(i => i.value.trim());
+
+        const ok = userWords[0].toLowerCase() === currentLineWords[1].toLowerCase() &&
+                   userWords[1].toLowerCase() === currentLineWords[2].toLowerCase() &&
+                   userWords[2].toLowerCase() === currentLineWords[3].toLowerCase();
+
+        if (ok) {
+            isCorrectState = true;
+            inputs.forEach(i => {
+                i.classList.add('correct');
+                i.disabled = true;
+            });
+            const btn = document.getElementById('submit-btn');
+            btn.classList.add('correct-btn');
+            btn.innerText = "Next quiz (Enter)";
+            document.getElementById('message').innerHTML = "<span style='color:green; font-weight:bold;'>Correct! Press Enter to continue.</span>";
+        } else {
+            startPenalty();
+        }
+    }
+
+    function startPenalty() {
+        isWaiting = true;
+        const msg = document.getElementById('message');
+        const btn = document.getElementById('submit-btn');
+        const timerDiv = document.getElementById('timer');
+        const inputs = [document.getElementById('word2'), document.getElementById('word3'), document.getElementById('word4')];
+        
+        btn.disabled = true;
+        inputs.forEach(i => i.disabled = true);
+        
+        msg.innerHTML = `<span class="error-text">Try again</span><br>Note it: <b>${currentLineWords.join(' ')}</b>`;
+        
+        let seconds = 30;
+        timerDiv.innerText = seconds;
+
+        const counter = setInterval(() => {
+            seconds--;
+            timerDiv.innerText = seconds > 0 ? seconds : "";
+            
+            if (seconds <= 0) {
+                clearInterval(counter);
+                
+                // Büntetés vége: mindent visszaállítunk, de NEM lépünk tovább
+                isWaiting = false;
+                btn.disabled = false;
+                msg.innerHTML = "<b>Try to enter the correct words again!</b>";
+                
+                inputs.forEach(i => {
+                    i.disabled = false;
+                    i.value = ""; // Töröljük a rossz válaszokat
+                });
+                inputs[0].focus();
+            }
+        }, 1000);
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            handleInteraction();
+        }
+    });
+
+    loadTextFile();
+</script>
+
+</body>
+</html>
