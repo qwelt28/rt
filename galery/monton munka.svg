@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Háttér -->
+  <rect width="200" height="200" fill="#f4f4f4"/>
+
+  <!-- Futószalag -->
+  <rect x="30" y="130" width="140" height="20" fill="#555"/>
+
+  <!-- Kerekek: 5 db, szimmetrikusan a középpont körül (100px) -->
+  <circle cx="60" cy="155" r="7" fill="#888"/>
+  <circle cx="80" cy="155" r="7" fill="#888"/>
+  <circle cx="100" cy="155" r="7" fill="#888"/>
+  <circle cx="120" cy="155" r="7" fill="#888"/>
+  <circle cx="140" cy="155" r="7" fill="#888"/>
+
+  <!-- Doboz (középen a szalagon) -->
+  <rect x="70" y="80" width="60" height="50" fill="#cc9966" stroke="#333" stroke-width="2"/>
+  <!-- Doboz teteje vonal -->
+  <line x1="70" y1="80" x2="130" y2="80" stroke="#333" stroke-width="2"/>
+</svg>
