@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Elektrosztatika - Teljes és Részletes Tanulmányi Útmutató</title>
+    <!-- MathJax a gyönyörű matematikai képletekért -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm 20mm 15mm;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #0d6efd;
+            margin: 0 0 10px 0;
+            font-size: 24pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .header p {
+            margin: 0;
+            font-style: italic;
+            color: #6c757d;
+            font-size: 11pt;
+        }
+        h2 {
+            color: #0b5ed7;
+            border-left: 5px solid #0d6efd;
+            padding-left: 10px;
+            margin-top: 30px;
+            font-size: 14pt;
+            text-transform: uppercase;
+        }
+        h3 {
+            color: #198754;
+            font-size: 12pt;
+            margin-top: 20px;
+        }
+        /* Tankönyvi kék dobozok */
+        .blue-box {
+            background-color: #e7f1ff;
+            border-left: 4px solid #0d6efd;
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .blue-box-title {
+            font-weight: bold;
+            color: #0a58ca;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 9.5pt;
+            letter-spacing: 0.5px;
+        }
+        /* Zöld kísérleti dobozok */
+        .green-box {
+            background-color: #f0fff4;
+            border-left: 4px solid #198754;
+            padding: 12px 18px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .green-box-title {
+            font-weight: bold;
+            color: #146c43;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-size: 9.5pt;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        .formula-card {
+            background: #f8f9fa;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 12px 0;
+        }
+        .formula-main {
+            text-align: center;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .formula-vars {
+            font-size: 9.5pt;
+            color: #495057;
+            border-top: 1px dashed #dee2e6;
+            padding-top: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 9.5pt;
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #0d6efd;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .example-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeba2;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .example-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+        .page-break {
+            page-break-before: always;
+        }
+        @media print {
+            body { padding: 0; }
+            .blue-box, .green-box, .example-box, .formula-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Elektrosztatika</h1>
+        <p>Bővített tanulmányi útmutató: definíciók, kísérletek, részletes képletjelölések és feladatok</p>
+    </div>
+
+    <h2>1. FEJEZET: Alapfogalmak és kísérleti jelenségek</h2>
+
+    <div class="blue-box">
+        <div class="blue-box-title">🔵 Tankönyvi kék kiemelések és definíciók</div>
+        <ul>
+            <li><strong>Elektromos állapot:</strong> A testek azon állapota, amikor maguk körül elektromos mezőt hoznak létre, és más töltött testekre erőt fejtenek ki.</li>
+            <li><strong>Kétféle töltés:</strong> A természetben pozitív és negatív töltés létezik. Az azonos előjelűek <em>taszítják</em>, a különböző előjelűek <em>vonzák</em> egymást.</li>
+            <li><strong>Töltésmegmaradás törvénye:</strong> Zárt anyagi rendszerben az elektromos töltések előjeles összege állandó (töltés nem keletkezik és nem semmisül meg).</li>
+            <li><strong>Vezetők és szigetelők:</strong>
+                <ul>
+                    <li><em>Vezetők (pl. fémek, grafit):</em> Szabadon elmozduló töltéshordozókkal (elektronokkal) rendelkeznek.</li>
+                    <li><em>Szigetelők (pl. műanyag, üveg, porcellán):</em> Nincsenek bennük szabadon mozgó töltéshordozók.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$Q = n \cdot e$$
+        </div>
+        <div class="formula-vars">
+            <strong>Képletben lévő mennyiségek ("Mi mi benne"):</strong>
+            <ul>
+                <li>\(Q\): Az objektum teljes elektromos töltése [\(\text{C}\) - Coulomb]</li>
+                <li>\(n\): A többlet- vagy hiányzó elektronok száma [mértékegység nélküli egész szám]</li>
+                <li>\(e\): Elemi töltés (az elektron töltésének nagysága): \(e = 1{,}6 \cdot 10^{-19}\text{ C}\)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="green-box">
+        <div class="green-box-title">🔬 Kísérletek és magyarázatuk (Számonkérhető tanári tételek)</div>
+        <p><strong>A) Dörzselektromosság:</strong> Dörzsöléskor elektronok lépnek át az egyik testről a másikra. A műanyag rúd a szőrmétől elektronokat vesz fel (negatív lesz), az üvegrúd a selyemnek elektronokat ad át (pozitív lesz).</p>
+        <p><strong>B) Elektroszkóp működése:</strong> A fémtányérra juttatott töltés megoszlik a fémzáron és a mutatóban. Az azonos töltésű alkatrészek közötti <em>elektrosztatikus taszítóerő</em> miatt a mutató kitér. A kitérés mértéke arányos a rávitt töltéssel.</p>
+        <p><strong>C) Elektromos megosztás (Influencia):</strong> Semleges fémtest közelébe helyezett töltött test hatására a fémben lévő szabad elektronok átrendeződnek. A közelebbi oldalon ellentétes, a távolabbi oldalon azonos előjelű töltéstöbblet keletkezik.</p>
+    </div>
+
+    <h2>2. FEJEZET: Coulomb törvénye (Elektrosztatikus erőtörvény)</h2>
+
+    <div class="blue-box">
+        <div class="blue-box-title">🔵 Tankönyvi definíció</div>
+        Két pontszerű elektromos töltés között ható erő nagysága egyenesen arányos a töltések nagyságának szorzatával, és fordítottan arányos a közöttük lévő távolság négyzetével.
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$F = k \cdot \frac{|Q_1 \cdot Q_2|}{r^2}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Képletben lévő mennyiségek ("Mi mi benne"):</strong>
+            <ul>
+                <li>\(F\): Elektrosztatikus Coulomb-erő [\(\text{N}\) - Newton]</li>
+                <li>\(Q_1, Q_2\): A két pontszerű töltés nagysága [\(\text{C}\) - Coulomb]</li>
+                <li>\(r\): A töltések közötti távolság [\(\text{m}\) - méter]</li>
+                <li>\(k\): Coulomb-féle arányossági tényező: \(k \approx 9 \cdot 10^9 \frac{\text{N} \cdot \text{m}^2}{\text{C}^2}\)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$k = \frac{1}{4 \pi \varepsilon_0}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Kapcsolódó állandók:</strong>
+            <ul>
+                <li>\(\varepsilon_0\): Vákuum permittivitása (elektromos áteresztőképessége): \(\varepsilon_0 = 8{,}85 \cdot 10^{-12} \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}\) (vagy \(\frac{\text{F}}{\text{m}}\))</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>3. FEJEZET: Elektromos mező és térerősség</h2>
+
+    <div class="blue-box">
+        <div class="blue-box-title">🔵 Elektromos térerősség (\(\vec{E}\))</div>
+        Az elektromos mező adott pontjába helyezett pozitív \(q\) próbatöltésre ható \(F\) erő és a \(q\) töltés hányadosa. Megadja a mező erősségét és irányát.
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$E = \frac{F}{q} \quad \implies \quad F = q \cdot E$$
+        </div>
+        <div class="formula-vars">
+            <strong>Képletben lévő mennyiségek ("Mi mi benne"):</strong>
+            <ul>
+                <li>\(E\): Elektromos térerősség [\(\frac{\text{N}}{\text{C}}\) vagy \(\frac{\text{V}}{\text{m}}\)]</li>
+                <li>\(F\): A mező által a töltésre kifejtett erő [\(\text{N}\)]</li>
+                <li>\(q\): A mezőbe helyezett próbatöltés [\(\text{C}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$E_{\text{pont}} = k \cdot \frac{|Q|}{r^2}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Ponttöltés által keltett térerősség:</strong>
+            <ul>
+                <li>\(Q\): A mezőt keltő ponttöltés [\(\text{C}\)]</li>
+                <li>\(r\): A töltéstől mért távolság [\(\text{m}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <p><strong>Erővonalak tulajdonságai:</strong> Pozitív töltésből indulnak, negatívon végződnek. Sűrűségük arányos a térerősséggel. Sosem metszik egymást. Homogén mezőben (pl. feltöltött síkkondenzátor lemezei között) párhuzamosak és egyenlő sűrűségűek.</p>
+
+    <div class="page-break"></div>
+
+    <h2>4. FEJEZET: Elektromos munka, feszültség, potenciál</h2>
+
+    <div class="blue-box">
+        <div class="blue-box-title">🔵 Konzervatív mező és munkavégzés</div>
+        Az elektrosztatikus mező <strong>konzervatív</strong>, azaz a benne mozgó töltésen végzett munka független a pályától, csak a kezdő- és végpont helyzetétől függ. Zárt pályán a végzett munka 0.
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$W = F \cdot d = q \cdot E \cdot d \quad \text{(Homogén mezőben)}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Képletben lévő mennyiségek ("Mi mi benne"):</strong>
+            <ul>
+                <li>\(W\): Az elektromos mező munkája [\(\text{J}\) - Joule]</li>
+                <li>\(q\): A mozgatott töltés [\(\text{C}\)]</li>
+                <li>\(E\): A homogén mező térerőssége [\(\frac{\text{V}}{\text{m}}\)]</li>
+                <li>\(d\): Az elmozdulás erővonalak irányába eső vetülete [\(\text{m}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$U_{AB} = \frac{W_{AB}}{q} \quad \implies \quad W_{AB} = q \cdot U_{AB}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Feszültség definíciója:</strong>
+            <ul>
+                <li>\(U_{AB}\): Az \(A\) és \(B\) pont közötti feszültség [\(\text{V}\) - Volt, ahol \(1\text{ V} = 1 \frac{\text{J}}{\text{C}}\)]</li>
+                <li>\(W_{AB}\): A mező által az \(A\)-ból \(B\)-be mozgatott töltésen végzett munka [\(\text{J}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$U = E \cdot d \quad \iff \quad E = \frac{U}{d} \quad \text{(Homogén mezőben)}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Feszültség és térerősség kapcsolatai:</strong>
+            <ul>
+                <li>\(U\): Két lemez/pont közötti feszültség [\(\text{V}\)]</li>
+                <li>\(d\): A lemezek/pontok távolsága [\(\text{m}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$U_A = \frac{W_{A \to 0}}{q}, \quad U_{AB} = U_A - U_B, \quad U_{\text{pont}} = k \cdot \frac{Q}{r}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Potenciál és összefüggései:</strong>
+            <ul>
+                <li>\(U_A\): Az \(A\) pont potenciálja a referencia-nullponthoz képest [\(\text{V}\)]</li>
+                <li>\(U_{\text{pont}}\): Egy \(Q\) ponttöltés által tőle \(r\) távolságban keltett potenciál [\(\text{V}\)]</li>
+                <li><strong>Ekvipotenciális felületek:</strong> Az azonos potenciálú pontokat összekötő felületek. Mindig merőlegesek az erővonalakra. Rajtuk mozgatva a töltést \(W = 0\).</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>5. FEJEZET: Vezetők az elektrosztatikus térben</h2>
+
+    <ul>
+        <li><strong>Vezető belseje nyugalomban:</strong> A térerősség a vezető belsejében nulla (\(E_{\text{belső}} = 0\)). A többlettöltések kizárólag a külső felületen helyezkednek el.</li>
+        <li><strong>Vezető potenciálja:</strong> Egyensúlyban a vezető teljes terjedelmében és felületén a potenciál állandó.</li>
+        <li><strong>Faraday-kalitka:</strong> Zárt fémburkolat belsejébe a külső elektrosztatikus mező nem hatol be. <em>Alkalmazás:</em> Autó karosszériája villámláskor, műszerek árnyékolása, koaxiális kábel.</li>
+        <li><strong>Csúcshatás:</strong> Hegyes csúcsoknál megnő a felületi töltéssűrűség és a térerősség, ami ionizálhatja a levegőt. <em>Alkalmazás:</em> Villámhárító.</li>
+    </ul>
+
+    <h2>6. FEJEZET: Kondenzátorok, kapacitás és energiatár</h2>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$C = \frac{Q}{U}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Kapacitás definíciója:</strong>
+            <ul>
+                <li>\(C\): A kondenzátor kapacitása [\(\text{F}\) - Farad, ahol \(1\text{ F} = 1 \frac{\text{C}}{\text{V}}\)]</li>
+                <li>\(Q\): A kondenzátor egyik lemezén lévő töltés nagysága [\(\text{C}\)]</li>
+                <li>\(U\): A lemezek közötti feszültség [\(\text{V}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$C = \varepsilon_0 \cdot \varepsilon_r \cdot \frac{A}{d}$$
+        </div>
+        <div class="formula-vars">
+            <strong>Síkkondenzátor kapacitása:</strong>
+            <ul>
+                <li>\(\varepsilon_0\): Vákuum permittivitása (\(8{,}85 \cdot 10^{-12} \frac{\text{F}}{\text{m}}\))</li>
+                <li>\(\varepsilon_r\): A lemezek közötti szigetelőanyag (dielektrikum) relatív permittivitása [mértékegység nélküli viszonyszám, levegőre \(\varepsilon_r \approx 1\)]</li>
+                <li>\(A\): A lemezek egymást átfedő felülete [\(\text{m}^2\)]</li>
+                <li>\(d\): A lemezek közötti távolság [\(\text{m}\)]</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formula-card">
+        <div class="formula-main">
+            $$W_e = \frac{1}{2} \cdot Q \cdot U = \frac{1}{2} \cdot C \cdot U^2 = \frac{Q^2}{2C}$$
+        </div>
+        <div class="formula-vars">
+            <strong>A feltöltött kondenzátorban tárolt elektrosztatikus energia:</strong>
+            <ul>
+                <li>\(W_e\): Az elektromos mező energiája [\(\text{J}\) - Joule]</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🔌 Kondenzátorok kapcsolása és helyettesítő értékek</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Jellemző</th>
+                <th>Párhuzamos kapcsolás</th>
+                <th>Soros kapcsolás</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Feszültség (\(U\))</strong></td>
+                <td>A feszültségek megegyeznek:<br>\(U_{\text{össz}} = U_1 = U_2 = \dots = U_n\)</td>
+                <td>A feszültségek összeadódnak:<br>\(U_{\text{össz}} = U_1 + U_2 + \dots + U_n\)</td>
+            </tr>
+            <tr>
+                <td><strong>Töltés (\(Q\))</strong></td>
+                <td>A töltések összeadódnak:<br>\(Q_{\text{össz}} = Q_1 + Q_2 + \dots + Q_n\)</td>
+                <td>A töltések megegyeznek:<br>\(Q_{\text{össz}} = Q_1 = Q_2 = \dots = Q_n\)</td>
+            </tr>
+            <tr>
+                <td><strong>Eredő kapacitás (\(C_e\))</strong></td>
+                <td>A kapacitások összeadódnak:<br>\(C_e = C_1 + C_2 + \dots + C_n\)</td>
+                <td>A reciprocok összeadódnak:<br>$$\frac{1}{C_e} = \frac{1}{C_1} + \frac{1}{C_2} + \dots + \frac{1}{C_n}$$</td>
+            </tr>
+            <tr>
+                <td><strong>Gyorsképlet (2 elemre)</strong></td>
+                <td>\(C_e = C_1 + C_2\)</td>
+                <td>$$C_e = \frac{C_1 \cdot C_2}{C_1 + C_2}$$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <h2>7. FEJEZET: Részletes Jelölés- és Mértékegység Tár ("Mi mi benne?")</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Mennyiség jele</th>
+                <th>Megnevezés</th>
+                <th>SI Mértékegysége</th>
+                <th>Mértékegység jele</th>
+                <th>Kulcsfontosságú összefüggések</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>\(Q, q\)</td><td>Elektromos töltés</td><td>Coulomb</td><td>\(\text{C}\)</td><td>\(Q = n \cdot e = C \cdot U = I \cdot t\)</td></tr>
+            <tr><td>\(e\)</td><td>Elemi töltés</td><td>Coulomb</td><td>\(\text{C}\)</td><td>\(e = 1{,}6 \cdot 10^{-19}\text{ C}\)</td></tr>
+            <tr><td>\(F\)</td><td>Coulomb-erő / Erő</td><td>Newton</td><td>\(\text{N}\)</td><td>\(F = k \frac{|Q_1 Q_2|}{r^2} = q \cdot E\)</td></tr>
+            <tr><td>\(E\)</td><td>Elektromos térerősség</td><td>Volt / méter (vagy \(\text{N}/\text{C}\))</td><td>\(\text{V}/\text{m}\)</td><td>\(E = \frac{F}{q} = \frac{U}{d} = k \frac{|Q|}{r^2}\)</td></tr>
+            <tr><td>\(W\)</td><td>Elektromos munka</td><td>Joule</td><td>\(\text{J}\)</td><td>\(W = q \cdot U = q \cdot E \cdot d\)</td></tr>
+            <tr><td>\(U\)</td><td>Feszültség</td><td>Volt</td><td>\(\text{V}\)</td><td>\(U = \frac{W}{q} = E \cdot d = \frac{Q}{C}\)</td></tr>
+            <tr><td>\(U_A\)</td><td>Elektromos potenciál</td><td>Volt</td><td>\(\text{V}\)</td><td>\(U_A = \frac{W_{A \to 0}}{q}\), \(U_{AB} = U_A - U_B\)</td></tr>
+            <tr><td>\(C\)</td><td>Kapacitás</td><td>Farad</td><td>\(\text{F}\)</td><td>\(C = \frac{Q}{U} = \varepsilon_0 \varepsilon_r \frac{A}{d}\)</td></tr>
+            <tr><td>\(W_e\)</td><td>Kondenzátor energiája</td><td>Joule</td><td>\(\text{J}\)</td><td>\(W_e = \frac{1}{2} Q U = \frac{1}{2} C U^2\)</td></tr>
+            <tr><td>\(r, d\)</td><td>Távolság / Lemezmódozat</td><td>Méter</td><td>\(\text{m}\)</td><td>\(1\text{ cm} = 10^{-2}\text{ m}\), \(1\text{ mm} = 10^{-3}\text{ m}\)</td></tr>
+            <tr><td>\(A\)</td><td>Felület / Lemezfelület</td><td>Négyzetméter</td><td>\(\text{m}^2\)</td><td>\(1\text{ cm}^2 = 10^{-4}\text{ m}^2\)</td></tr>
+            <tr><td>\(k\)</td><td>Coulomb-állandó</td><td>\(\frac{\text{N} \cdot \text{m}^2}{\text{C}^2}\)</td><td>-</td><td>\(k \approx 9 \cdot 10^9 \frac{\text{N} \cdot \text{m}^2}{\text{C}^2}\)</td></tr>
+            <tr><td>\(\varepsilon_0\)</td><td>Vákuum permittivitása</td><td>\(\frac{\text{F}}{\text{m}}\) vagy \(\frac{\text{C}^2}{\text{N} \cdot \text{m}^2}\)</td><td>-</td><td>\(\varepsilon_0 = 8{,}85 \cdot 10^{-12} \frac{\text{F}}{\text{m}}\)</td></tr>
+            <tr><td>\(\varepsilon_r\)</td><td>Relatív permittivitás</td><td>Dimenziótlan (szám)</td><td>-</td><td>Dielektrikum szorzótényezője</td></tr>
+        </tbody>
+    </table>
+
+    <h2>8. FEJEZET: Kidolgozott számolási példák</h2>
+
+    <div class="example-box">
+        <div class="example-title">1. Feladat: Coulomb-erő és elektronok száma</div>
+        <strong>Kérdés:</strong> Két pontszerű \(Q_1 = +2\ \mu\text{C}\) és \(Q_2 = +5\ \mu\text{C}\) töltés \(r = 30\text{ cm}\) távolságra van egymástól vákuumban.<br>
+        a) Mekkora a közöttük ható taszítóerő?<br>
+        b) Hány darab elektroni hiányzik a \(Q_1\) töltésű testből?<br><br>
+        <strong>Megoldás:</strong><br>
+        1. Adatok átváltása: \(Q_1 = 2 \cdot 10^{-6}\text{ C}\), \(Q_2 = 5 \cdot 10^{-6}\text{ C}\), \(r = 0{,}3\text{ m}\), \(e = 1{,}6 \cdot 10^{-19}\text{ C}\).<br>
+        2. a) Coulomb törvénye:<br>
+        $$F = k \cdot \frac{Q_1 \cdot Q_2}{r^2} = 9 \cdot 10^9 \cdot \frac{(2 \cdot 10^{-6}) \cdot (5 \cdot 10^{-6})}{(0{,}3)^2} = 9 \cdot 10^9 \cdot \frac{10^{-11}}{0{,}09} = 1\text{ N}$$
+        3. b) Elektronok száma a \(Q = n \cdot e\) képletből:<br>
+        $$n = \frac{Q_1}{e} = \frac{2 \cdot 10^{-6}\text{ C}}{1{,}6 \cdot 10^{-19}\text{ C}} = 1{,}25 \cdot 10^{13}\text{ db}$$
+        <strong>Válasz:</strong> A taszítóerő <strong>1 N</strong>, és <strong>\(1{,}25 \cdot 10^{13}\) darab</strong> elektron hiányzik a testből.
+    </div>
+
+    <div class="example-box">
+        <div class="example-title">2. Feladat: Síkkondenzátor térerőssége, munkája és energiája</div>
+        <strong>Kérdés:</strong> Egy párhuzamos lemezes kondenzátor lemezeinek távolsága \(d = 4\text{ mm} = 0{,}004\text{ m}\), a kapcsolt feszültség \(U = 200\text{ V}\).<br>
+        a) Mekkora a lemezek közötti térerősség?<br>
+        b) Mekkora munkát végz a mező egy \(q = +5\text{ nF} \to 5\ \text{nC} = 5 \cdot 10^{-9}\text{ C}\) töltés áthelyezésekor az egyik lemeztől a másikig?<br><br>
+        <strong>Megoldás:</strong><br>
+        1. a) Térerősség homogén mezőben:<br>
+        $$E = \frac{U}{d} = \frac{200\text{ V}}{0{,}004\text{ m}} = 50\,000 \frac{\text{V}}{\text{m}} = 50 \frac{\text{kV}}{\text{m}}$$
+        2. b) Elektromos munka:<br>
+        $$W = q \cdot U = (5 \cdot 10^{-9}\text{ C}) \cdot 200\text{ V} = 10^{-6}\text{ J} = 1\ \mu\text{J}$$
+        <strong>Válasz:</strong> A térerősség <strong>\(50\,000\text{ V/m}\)</strong>, a végzett munka <strong>\(1\ \mu\text{J}\)</strong>.
+    </div>
+
+    <div class="example-box">
+        <div class="example-title">3. Feladat: Soros és párhuzamos eredő kapacitás</div>
+        <strong>Kérdés:</strong> Adott két kondenzátor: \(C_1 = 6\ \mu\text{F}\) és \(C_2 = 12\ \mu\text{F}\). Számítsd ki az eredő kapacitást és a tárolt energiát \(U = 12\text{ V}\) esetén párhuzamos kapcsolásnál!<br><br>
+        <strong>Megoldás:</strong><br>
+        1. Párhuzamos eredő kapacitás:<br>
+        $$C_e = C_1 + C_2 = 6\ \mu\text{F} + 12\ \mu\text{F} = 18\ \mu\text{F} = 18 \cdot 10^{-6}\text{ F}$$
+        2. Összes tárolt energia:<br>
+        $$W_e = \frac{1}{2} \cdot C_e \cdot U^2 = \frac{1}{2} \cdot (18 \cdot 10^{-6}\text{ F}) \cdot (12\text{ V})^2 = 9 \cdot 10^{-6} \cdot 144 = 1{,}296 \cdot 10^{-3}\text{ J} = 1{,}296\text{ mJ}$$
+        <strong>Válasz:</strong> Az eredő kapacitás <strong>\(18\ \mu\text{F}\)</strong>, a tárolt energia <strong>\(1{,}296\text{ mJ}\)</strong>.
+    </div>
+
+</body>
+</html>
